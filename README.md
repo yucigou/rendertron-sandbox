@@ -158,11 +158,23 @@ Rendertron no longer includes a Docker file. Instead, refer to
 [Puppeteer documentation](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker)
 on how to deploy run headless Chrome in Docker.
 
+Note: The purpose of this forked repo is to dockerize Rendertron, so it can be deployed as a Docker container.
+
+You can try using docker-compose to build and run it:
+```
+docker-compose up -d
+```
+
+Or run from an already built image:
+```
+docker-compose -f docker-compose.prod.yaml up -d
+```
+
 ### Config
 When deploying the service, set configuration variables by including a `config.json` in the
 root. Available configuration options:
  * `datastoreCache` default `false` - set to `true` to enable caching on Google Cloud using datastore
- * `timeout` default `10000` - set the timeout used to render the target page. 
+ * `timeout` default `10000` - set the timeout used to render the target page.
  * `port` default `3000` - set the port to use for running and listening the rendertron service. Note if process.env.PORT is set, it will be used instead.
  * `width` default `1000` - set the width (resolution) to be used for rendering the page.
  * `height` default `1000` - set the height (resolution) to be used for rendering the page.
