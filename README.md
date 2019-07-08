@@ -158,7 +158,7 @@ Rendertron no longer includes a Docker file. Instead, refer to
 [Puppeteer documentation](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker)
 on how to deploy run headless Chrome in Docker.
 
-Note: The purpose of this forked repo is to dockerize Rendertron, so it can be deployed as a Docker container.
+**Note**: The purpose of this forked repo is to dockerize Rendertron, so it can be deployed as a Docker container.
 
 You can try using docker-compose to build and run it:
 ```
