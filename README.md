@@ -1,3 +1,15 @@
+**Note**: The purpose of this forked repo is to dockerize Rendertron, so it can be deployed as a Docker container.
+
+You can try using docker-compose to build and run it:
+```
+docker-compose up -d
+```
+
+Or run from an already built image:
+```
+docker-compose -f docker-compose.prod.yaml up -d
+```
+
 # Rendertron [![Build status](https://travis-ci.org/GoogleChrome/rendertron.svg?branch=master)](https://travis-ci.org/GoogleChrome/rendertron) [![NPM rendertron package](https://img.shields.io/npm/v/rendertron.svg)](https://npmjs.org/package/rendertron)
 
 > Rendertron is a headless Chrome rendering solution designed to render & serialise web pages on the fly.
@@ -157,18 +169,6 @@ gcloud app deploy app.yaml --project <your-project-id>
 Rendertron no longer includes a Docker file. Instead, refer to
 [Puppeteer documentation](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker)
 on how to deploy run headless Chrome in Docker.
-
-**Note**: The purpose of this forked repo is to dockerize Rendertron, so it can be deployed as a Docker container.
-
-You can try using docker-compose to build and run it:
-```
-docker-compose up -d
-```
-
-Or run from an already built image:
-```
-docker-compose -f docker-compose.prod.yaml up -d
-```
 
 ### Config
 When deploying the service, set configuration variables by including a `config.json` in the
