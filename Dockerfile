@@ -23,11 +23,8 @@ USER worker
 RUN mkdir -p /home/worker/rendertron
 WORKDIR /home/worker/rendertron
 
-COPY . ./
-RUN npm install
-
-RUN npm run build
+RUN npm install rendertron
 
 EXPOSE 3000
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npx", "rendertron" ]
