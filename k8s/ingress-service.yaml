@@ -9,7 +9,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: /(.*)
+          - path: /https:/europepmc.org/(.*)
             backend:
               serviceName: rendertron-service
               servicePort: 3030
