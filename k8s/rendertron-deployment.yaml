@@ -17,6 +17,6 @@ spec:
       containers:
         - name: rendertron
           # Pulls the default Rendertron image from Docker Hub
-          image: ygou/rendertron:2.0.1.2
+          image: ygou/rendertron:2.0.1.1
           ports:
             - containerPort: 3000
