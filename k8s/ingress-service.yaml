@@ -4,7 +4,7 @@ metadata:
   name: ingress-service
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /render/$1://$2$3$4
+    nginx.ingress.kubernetes.io/rewrite-target: /$1$2$2$3
     certmanager.k8s.io/cluster-issuer: 'letsencrypt-prod'
     nginx.ingress.kubernetes.io/ssl-redirect: 'true'
 spec:
@@ -16,7 +16,7 @@ spec:
     - host: fullstackpro.dev
       http:
         paths:
-          - path: /rendertron/render/(https|http):/(.+)(/?)(.*)
+          - path: /rendertron/(render/https:)(/)(.*)
             backend:
               serviceName: rendertron-service
               servicePort: 3030
