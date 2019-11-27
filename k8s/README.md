@@ -1,4 +1,4 @@
-Works with Minikube on http://192.168.99.100/https://test.europepmc.org/article/MED/31456562
+Works on GKE: https://fullstackpro.dev/rendertron/render/https://test.europepmc.org/article/MED/12679102
 
 Supported URL examples:
 

@@ -16,7 +16,7 @@ spec:
     - host: fullstackpro.dev
       http:
         paths:
-          - path: /(https|http):/(.+)(/?)(.*)
+          - path: /rendertron/render/(https|http):/(.+)(/?)(.*)
             backend:
               serviceName: rendertron-service
               servicePort: 3030
