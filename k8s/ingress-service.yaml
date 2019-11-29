@@ -24,3 +24,7 @@ spec:
             backend:
               serviceName: webapp-service
               servicePort: 3000
+          - path: /(minio/.*)
+            backend:
+              serviceName: minio-service
+              servicePort: 9000
