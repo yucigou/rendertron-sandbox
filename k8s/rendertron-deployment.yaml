@@ -4,7 +4,7 @@ metadata:
   # This name uniquely identifies the Deployment
   name: rendertron-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: rendertron
@@ -14,9 +14,17 @@ spec:
         # Label is used as selector in the service.
         app: rendertron
     spec:
+      restartPolicy: Always
       containers:
         - name: rendertron
           # Pulls the default Rendertron image from Docker Hub
-          image: ygou/rendertron:2.0.1.2
+          image: ygou/rendertron:2.0.1.1
           ports:
             - containerPort: 3000
+              hostPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            failureThreshold: 1
+            periodSeconds: 10

@@ -13,3 +13,9 @@ Issuer & Certificate
 
 - https://docs.cert-manager.io/en/latest/tasks/issuers/setup-acme/index.html#creating-a-basic-acme-issuer
 - https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html
+
+## Rendertron
+
+Health check
+
+- https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request
