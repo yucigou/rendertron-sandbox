@@ -28,3 +28,11 @@ spec:
               port: 3000
             failureThreshold: 1
             periodSeconds: 10
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            failureThreshold: 2
+            periodSeconds: 10
+            timeoutSeconds: 10
