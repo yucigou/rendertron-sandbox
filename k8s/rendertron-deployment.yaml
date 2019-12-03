@@ -24,14 +24,14 @@ spec:
               hostPort: 3000
           livenessProbe:
             httpGet:
-              path: /
+              path: /render/https://google.com
               port: 3000
             failureThreshold: 1
             periodSeconds: 10
             timeoutSeconds: 10
           readinessProbe:
             httpGet:
-              path: /
+              path: /render/https://google.com
               port: 3000
             failureThreshold: 2
             periodSeconds: 10
