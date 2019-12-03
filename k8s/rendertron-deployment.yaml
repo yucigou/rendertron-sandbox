@@ -30,7 +30,7 @@ spec:
             failureThreshold: 2
             periodSeconds: 30
             timeoutSeconds: 15
-            initialDelaySeconds: 60
+            initialDelaySeconds: 70
           readinessProbe:
             exec:
               command:
@@ -40,3 +40,4 @@ spec:
             failureThreshold: 2
             periodSeconds: 30
             timeoutSeconds: 15
+            initialDelaySeconds: 10
