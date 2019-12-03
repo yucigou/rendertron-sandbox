@@ -19,3 +19,4 @@ Issuer & Certificate
 Health check
 
 - https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request
+- [Kubernetes Health Checks with Readiness and Liveness Probes (Kubernetes Best Practices)](https://www.youtube.com/watch?v=mxEvAPQRwhw)

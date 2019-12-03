@@ -4,7 +4,7 @@ metadata:
   # This name uniquely identifies the Deployment
   name: rendertron-deployment
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       app: rendertron
@@ -18,21 +18,21 @@ spec:
       containers:
         - name: rendertron
           # Pulls the default Rendertron image from Docker Hub
-          image: ygou/rendertron:2.0.1.1
+          image: ygou/rendertron:2.0.1.2
           ports:
             - containerPort: 3000
-              hostPort: 3000
           livenessProbe:
             httpGet:
-              path: /render/https://google.com
-              port: 3000
-            failureThreshold: 1
-            periodSeconds: 10
-            timeoutSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /render/https://google.com
+              path: /render/https://test.europepmc.org/ContactUs
               port: 3000
             failureThreshold: 2
-            periodSeconds: 10
-            timeoutSeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 15
+            initialDelaySeconds: 60
+          readinessProbe:
+            httpGet:
+              path: /render/https://test.europepmc.org/ContactUs
+              port: 3000
+            failureThreshold: 2
+            periodSeconds: 30
+            timeoutSeconds: 15
