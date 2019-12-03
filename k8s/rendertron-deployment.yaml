@@ -4,7 +4,7 @@ metadata:
   # This name uniquely identifies the Deployment
   name: rendertron-deployment
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: rendertron
@@ -22,17 +22,21 @@ spec:
           ports:
             - containerPort: 3000
           livenessProbe:
-            httpGet:
-              path: /render/https://europepmc.org/ContactUs
-              port: 3000
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - "curl http://localhost:3000/render/https://europepmc.org/ContactUs | grep '<h1>Contact us</h1>'"
             failureThreshold: 2
             periodSeconds: 30
             timeoutSeconds: 15
             initialDelaySeconds: 60
           readinessProbe:
-            httpGet:
-              path: /render/https://europepmc.org/ContactUs
-              port: 3000
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - "curl http://localhost:3000/render/https://europepmc.org/ContactUs | grep '<h1>Contact us</h1>'"
             failureThreshold: 2
             periodSeconds: 30
             timeoutSeconds: 15

@@ -19,5 +19,6 @@ Issuer & Certificate
 Health check
 
 - https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-http-request
+- [Kubernetes best practices: Setting up health checks with readiness and liveness probes](https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-setting-up-health-checks-with-readiness-and-liveness-probes)
 - [Kubernetes Health Checks with Readiness and Liveness Probes (Kubernetes Best Practices)](https://www.youtube.com/watch?v=mxEvAPQRwhw)
 - [Any monitoring solution for Rendertron?](https://superuser.com/questions/1506990/any-monitoring-solution-for-rendertron)
