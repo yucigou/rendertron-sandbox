@@ -23,7 +23,7 @@ spec:
             - containerPort: 3000
           livenessProbe:
             httpGet:
-              path: /render/https://test.europepmc.org/ContactUs
+              path: /render/https://europepmc.org/ContactUs
               port: 3000
             failureThreshold: 2
             periodSeconds: 30
@@ -31,7 +31,7 @@ spec:
             initialDelaySeconds: 60
           readinessProbe:
             httpGet:
-              path: /render/https://test.europepmc.org/ContactUs
+              path: /render/https://europepmc.org/ContactUs
               port: 3000
             failureThreshold: 2
             periodSeconds: 30
