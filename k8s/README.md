@@ -14,6 +14,12 @@ Issuer & Certificate
 - https://docs.cert-manager.io/en/latest/tasks/issuers/setup-acme/index.html#creating-a-basic-acme-issuer
 - https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html
 
+Update certificate for new subdomain:
+```
+kubectl apply -f k8s/certificate.yaml
+kubectl describe certificate
+```
+
 ## Rendertron
 
 Health check

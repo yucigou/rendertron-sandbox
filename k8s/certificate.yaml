@@ -10,9 +10,11 @@ spec:
   commonName: fullstackpro.dev
   dnsNames:
     - fullstackpro.dev
+    - ftp.fullstackpro.dev
   acme:
     config:
       - http01:
           ingressClass: nginx
         domains:
           - fullstackpro.dev
+          - ftp.fullstackpro.dev
