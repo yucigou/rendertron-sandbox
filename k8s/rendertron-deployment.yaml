@@ -15,12 +15,22 @@ spec:
         app: rendertron
     spec:
       restartPolicy: Always
+      volumes:
+        - name: rendertron-storage
+          persistentVolumeClaim:
+            claimName: rendertron-pvc
       containers:
         - name: rendertron
           # Pulls the default Rendertron image from Docker Hub
           image: ygou/rendertron:2.0.1.2
           ports:
             - containerPort: 3000
+          volumeMounts:
+            - name: rendertron-storage
+              mountPath: /var/log/rendertron
+              subPath: logs
+          command: ['npx']
+          args: ['rendertron', '>>', '/var/log/rendertron/$(hostname).log']
           livenessProbe:
             exec:
               command:
