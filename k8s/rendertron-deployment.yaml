@@ -29,8 +29,9 @@ spec:
             - name: rendertron-storage
               mountPath: /var/log/rendertron
               subPath: logs
-          command: ['npx']
-          args: ['rendertron', '>>', '/var/log/rendertron/$(hostname).log']
+          command: ['/bin/sh']
+          args:
+            ['-c', 'npx rendertron >> /var/log/rendertron/$(hostname).log 2>&1']
           livenessProbe:
             exec:
               command:
