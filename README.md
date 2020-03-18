@@ -1,25 +1,3 @@
-**Note**: The purpose of this forked repo is to dockerize Rendertron, so it can be deployed as a Docker container.
-
-You can try using docker-compose to build and run it:
-
-```
-docker-compose up -d
-```
-
-Or run from an already built image:
-
-```
-docker-compose -f docker-compose.prod.yaml up -d
-```
-
-You can also deploy it with Kubernetes:
-
-```
-$ cd ./k8s
-$ kubectl apply -f rendertron-deployment.yaml
-$ kubectl apply -f rendertron-service.yaml
-```
-
 # Rendertron [![Build status](https://travis-ci.org/GoogleChrome/rendertron.svg?branch=master)](https://travis-ci.org/GoogleChrome/rendertron) [![NPM rendertron package](https://img.shields.io/npm/v/rendertron.svg)](https://npmjs.org/package/rendertron)
 
 > Rendertron is a headless Chrome rendering solution designed to render & serialise web pages on the fly.
@@ -45,23 +23,29 @@ to be used as a production endpoint. You can use it, but there are no uptime gua
 
 ## Contents
 
-- [Middleware](#middleware)
-- [API](#api)
-  - [Render](#render)
-  - [Screenshot](#screenshot)
-- [FAQ](#faq)
-  - [Query parameters](#query-parameters)
-  - [Auto detecting loading function](#auto-detecting-loading-function)
-  - [Rendering budget timeout](#rendering-budget-timeout)
-  - [Web components](#web-components)
-  - [Status codes](#status-codes)
-- [Installing & deploying](#installing--deploying)
-  - [Building](#building)
+- [Rendertron ![Build status](https://travis-ci.org/GoogleChrome/rendertron) [![NPM rendertron package](https://img.shields.io/npm/v/rendertron.svg)](https://npmjs.org/package/rendertron)](#rendertron-img-src%22httpstravis-ciorggooglechromerendertron%22-alt%22build-status%22-img-src%22httpsimgshieldsionpmvrendertronsvg%22-alt%22npm-rendertron-package%22)
+      - [:hammer: Built with Puppeteer](#hammer-built-with-puppeteer)
+      - [:cloud: Easy deployment to Google Cloud](#cloud-easy-deployment-to-google-cloud)
+      - [:mag: Improves SEO](#mag-improves-seo)
+  - [Contents](#contents)
+  - [Middleware](#middleware)
+  - [API](#api)
+    - [Render](#render)
+    - [Screenshot](#screenshot)
+  - [FAQ](#faq)
+    - [Query parameters](#query-parameters)
+    - [Auto detecting loading function](#auto-detecting-loading-function)
+    - [Rendering budget timeout](#rendering-budget-timeout)
+    - [Web components](#web-components)
+    - [Status codes](#status-codes)
   - [Running locally](#running-locally)
-  - [Deploying to Google Cloud Platform](#deploying-to-google-cloud-platform)
-  - [Deploying using Docker](#deploying-using-docker)
-  - [Config](#config)
-  - [Troubleshooting](#troubleshooting)
+  - [Installing & deploying](#installing--deploying)
+    - [Building](#building)
+    - [Running locally](#running-locally-1)
+    - [Deploying to Google Cloud Platform](#deploying-to-google-cloud-platform)
+    - [Deploying using Docker](#deploying-using-docker)
+    - [Config](#config)
+    - [Troubleshooting](#troubleshooting)
 
 ## Middleware
 
@@ -73,6 +57,7 @@ This is a list of middleware available to use with the Rendertron service:
 - [Express.js middleware](/middleware)
 - [Firebase functions](https://github.com/justinribeiro/pwa-firebase-functions-botrender) (Community maintained)
 - [ASP.net core middleware](https://github.com/galamai/AspNetCore.Rendertron) (Community maintained)
+- [Python (Django) middleware and decorator](https://github.com/frontendr/python-rendertron) (Community maintained)
 
 Rendertron is also compatible with [prerender.io middleware](https://prerender.io/documentation/install-middleware).
 Note: the user agent lists differ there.
@@ -90,6 +75,10 @@ specified as query parameters:
 
 - `mobile` defaults to `false`. Enable by passing `?mobile` to request the
   mobile version of your site.
+
+* `refreshCache`: Pass `refreshCache=true` to ignore potentially cached render results
+  and treat the request as if it is not cached yet.
+  The new render result is used to replace the previous result.
 
 ### Screenshot
 
@@ -210,11 +199,12 @@ on how to deploy run headless Chrome in Docker.
 When deploying the service, set configuration variables by including a `config.json` in the
 root. Available configuration options:
 
-- `datastoreCache` default `false` - set to `true` to enable caching on Google Cloud using datastore
 - `timeout` default `10000` - set the timeout used to render the target page.
 - `port` default `3000` - set the port to use for running and listening the rendertron service. Note if process.env.PORT is set, it will be used instead.
+- `host` default `0.0.0.0` - set the hostname to use for running and listening the rendertron service. Note if process.env.HOST is set, it will be used instead.
 - `width` default `1000` - set the width (resolution) to be used for rendering the page.
 - `height` default `1000` - set the height (resolution) to be used for rendering the page.
+- `cache` default `null` - set to `datastore` to enable caching on Google Cloud using datastore or to `memory` to enable in-memory caching
 
 ### Troubleshooting
 
