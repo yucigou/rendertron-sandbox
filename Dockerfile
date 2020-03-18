@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM ubuntu:18.04
 
 RUN apt-get update
 RUN apt-get install -y curl
@@ -24,6 +24,8 @@ RUN mkdir -p /home/worker/rendertron
 WORKDIR /home/worker/rendertron
 
 RUN npm install rendertron
+
+COPY src/rendertron.js node_modules/rendertron/build/rendertron.js
 
 EXPOSE 3000
 
